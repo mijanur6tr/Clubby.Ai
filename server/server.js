@@ -8,17 +8,24 @@ import userRouter from './routes/userRoutes.js';
 
 const app = express();
 
-// Cloudinary config
-await cloudinaryConfig();
-
 app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 
+// Initialize cloudinary per request (safe for serverless)
+app.use(async (req, res, next) => {
+  try {
+    await cloudinaryConfig();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Public route
 app.get("/", (req, res) => res.send("Server is running"));
 
-// Protect all /api routes
+// Protected routes
 app.use("/api/ai", requireAuth(), aiRouter);
 app.use("/api/user", requireAuth(), userRouter);
 
