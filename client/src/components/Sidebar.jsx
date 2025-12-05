@@ -17,7 +17,7 @@ export const Sidebar = ({ closeSidebar }) => {
     { label: "Generate Image", icon: <Image size={20} />, to: "/ai/generate-image" },
     { label: "Remove Background", icon: <Scissors size={20} />, to: "/ai/remove-bg" },
     { label: "Remove Object", icon: <Eraser size={20} />, to: "/ai/remove-object" },
-    { label: "Review Resume", icon: <FileCheck2 size={20} />, to: "/ai/review-resume" },
+    // { label: "Review Resume", icon: <FileCheck2 size={20} />, to: "/ai/review-resume" },
     { label: "Community", icon: <Users size={20} />, to: "/ai/community" },
   ];
 
@@ -28,9 +28,9 @@ export const Sidebar = ({ closeSidebar }) => {
       {closeSidebar && (
         <button
           onClick={closeSidebar}
-          className="absolute top-4  right-4 bg-gray-200 p-2 rounded-full lg:hidden"
+          className="absolute top-1  right-4 bg-gray-200 px-1 rounded-full lg:hidden"
         >
-          <X size={20} />
+          <X size={17} />
         </button>
       )}
 
