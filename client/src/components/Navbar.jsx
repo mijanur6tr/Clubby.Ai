@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useClerk,useUser,UserButton } from "@clerk/clerk-react";
+import navLogo from '../../public/navLogo.png';
 
 const Navbar = () => {
   
@@ -13,8 +14,8 @@ const Navbar = () => {
       <div className=" mx-auto px-8 py-4 flex  items-center justify-between">
 
         <div className="mx-6 lg:ml-0 flex  items-center justify-center" onClick={()=>navigate("/")}>
-          <img src=".././public/navLogo.png" className="w-15 "/>
-          <p className="text-2xl">Clubby Ai</p>
+         <img src={navLogo} className="w-15 " alt="Clubby AI Logo"/>
+         <p className="text-2xl">Clubby Ai</p>
           
         </div>
 
