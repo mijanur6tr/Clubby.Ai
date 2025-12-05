@@ -20,30 +20,31 @@ const ReviewResume = () => {
     const { getToken } = useAuth();
 
     const handleReviewResume = async () => {
-        setIsLoading(true);
-        try {
+        console.log(content)
+        // setIsLoading(true);
+        // try {
 
-            const formData = new FormData();
-            formData.append("resume", file);
+        //     const formData = new FormData();
+        //     formData.append("resume", file);
 
-            const { data } = await axios.post("/api/ai/review-resume", formData, {
-                headers: {
-                    Authorization: `Bearer ${await getToken()}`,
-                },
-            });
+        //     const { data } = await axios.post("/api/ai/review-resume", formData, {
+        //         headers: {
+        //             Authorization: `Bearer ${await getToken()}`,
+        //         },
+        //     });
 
-            if (data.success) {
-                setContent(data.content);
-            } else {
-                toast.error(data.message);
-            }
+        //     if (data.success) {
+        //         setContent(data.content);
+        //     } else {
+        //         toast.error(data.message);
+        //     }
 
-        } catch (error) {
-            console.log("Error reviewing resume : ", error);
-            toast.error(error.response?.data?.message || "An unexpected error occurred reviewing resume.");
-        } finally {
-            setIsLoading(false);
-        }
+        // } catch (error) {
+        //     console.log("Error reviewing resume : ", error);
+        //     toast.error(error.response?.data?.message || "An unexpected error occurred reviewing resume.");
+        // } finally {
+        //     setIsLoading(false);
+        // }
     };
 
     const AnalysisResultsDisplay = () => {
