@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import Navbar from "../components/Navbar.jsx";
 import { useUser, useClerk } from "@clerk/clerk-react";
+import { Menu } from "lucide-react"; // <-- install if needed: npm i lucide-react
+import Footer from "../components/Footer.jsx";
 
 const Layout = () => {
   const { user, isLoaded } = useUser();
   const { openSignIn } = useClerk();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   if (!isLoaded) {
     return (
@@ -33,18 +37,47 @@ const Layout = () => {
   }
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden"> 
-      {/* Navbar fixed at top */}
-      <Navbar />
+    <div className="h-screen flex flex-col overflow-hidden">
+    
+      <div className="relative">
+        <Navbar />
 
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar fixed vertically */}
-        <Sidebar />
+       
+        <button
+          className="lg:hidden absolute top-4 left-4 p-2 rounded-md bg-gray-200 shadow-md"
+          onClick={() => setIsSidebarOpen(true)}
+        >
+          <Menu size={24} />
+        </button>
+      </div>
 
-        {/* Scrollable content */}
+      <div className="flex flex-1 overflow-hidden relative">
+
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
+
+
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0   z-40 lg:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          ></div>
+        )}
+
+    
+        <div
+          className={`fixed z-50 top-0 left-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 lg:hidden 
+            ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
+        >
+          <Sidebar closeSidebar={() => setIsSidebarOpen(false)} />
+        </div>
+
+
         <div className="flex-1 overflow-y-auto p-6 bg-gray-50">
           <Outlet />
         </div>
+        
       </div>
     </div>
   );

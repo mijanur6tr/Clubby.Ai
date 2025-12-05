@@ -17,7 +17,7 @@ const Creations = ({ creations, setCreations }) => {
   };
 
   return (
-    <div className="w-full p-8 bg-gray-50 min-h-screen">
+    <div className="w-full py-8 bg-gray-50 min-h-screen">
       <h2 className="text-3xl font-bold mb-8 text-gray-900">Your Creations</h2>
 
       <div className="flex flex-col gap-6">
@@ -47,8 +47,10 @@ const Creations = ({ creations, setCreations }) => {
                       {dayjs(item.created_at).format("D/MM/YYYY")}
                     </p>
                   </div>
+                  
+                  <div className="flex">
 
-                  <span className="px-4 py-1 rounded-full text-sm border border-blue-300 text-blue-600 bg-blue-50 capitalize">
+                  <span className="px-2 lg:px-4 py-1 rounded-lg text-center  text-sm border border-blue-300 text-blue-600 bg-blue-50 capitalize">
                     {item.type.replace("-", " ")}
                   </span>
 
@@ -59,6 +61,9 @@ const Creations = ({ creations, setCreations }) => {
                       <ChevronDown size={22} className="text-gray-500" />
                     )}
                   </div>
+
+                  </div>
+
                 </div>
 
                 {isOpen && (

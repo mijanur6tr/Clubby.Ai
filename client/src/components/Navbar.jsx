@@ -12,8 +12,8 @@ const Navbar = () => {
     <nav className="w-full  top-0 left-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
       <div className=" mx-auto px-8 py-3 flex  items-center justify-between">
 
-        <div onClick={()=>navigate("/")}>
-          <img src=".././public/textlogo.png" className="w-24"/>
+        <div className="mx-6 lg:ml-0" onClick={()=>navigate("/")}>
+          <img src=".././public/textlogo.png" className="w-24 "/>
           
         </div>
 

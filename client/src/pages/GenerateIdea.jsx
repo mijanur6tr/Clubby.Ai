@@ -95,12 +95,12 @@ const GenerateIdea = () => {
                 <div className="lg:col-span-2">
                     <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl h-fit border border-gray-100">
 
-                        <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-8">
+                        <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-2 lg:mb-8">
                             <Sparkles className="w-6 h-6 mr-2 text-purple-500" />
                             Generate Content Idea
                         </h1>
 
-                        <div className="mb-8">
+                        <div className="mb-2 lg:mb-8">
                             <label htmlFor="keyword" className="block text-sm font-medium text-gray-700 mb-2">
                                 Keyword
                             </label>
@@ -115,7 +115,7 @@ const GenerateIdea = () => {
                         </div>
 
 
-                        <div className="mb-10">
+                        <div className="mb-2 lg:mb-8">
                             <label className="block text-sm font-medium text-gray-700 mb-3">
                                 Category
                             </label>
@@ -151,7 +151,7 @@ const GenerateIdea = () => {
 
 
                 <div className="lg:col-span-3">
-                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[70vh] border border-gray-100">
+                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[50vh] lg:min-h-[70vh] border border-gray-100">
                         <h2 className="flex items-center text-xl font-bold text-gray-800 border-b pb-4 mb-6">
                             <Hash className="w-5 h-5 mr-2 text-purple-500" />
                             Generated Ideas

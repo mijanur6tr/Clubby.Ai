@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 
-// Initialize cloudinary per request (safe for serverless)
+
 app.use(async (req, res, next) => {
   try {
     await cloudinaryConfig();

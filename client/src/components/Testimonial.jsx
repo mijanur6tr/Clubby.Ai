@@ -8,6 +8,9 @@ import React from 'react'
 export const Testimonial = (props) => {
   return(
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+         <h2 className="text-4xl md:text-5xl text-center py-10 font-bold text-gray-900">
+            Testimonials
+          </h2>
 
     <div class="w-full max-w-88 space-y-4 rounded-md border border-gray-200 bg-white p-3 text-gray-500 transition-all duration-300 hover:-translate-y-1">
         <div class="flex items-center justify-between">

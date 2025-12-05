@@ -13,8 +13,8 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="max-w-7xl mx-auto px-6 py-24">
-      <h2 className="text-center text-4xl font-bold mb-12 text-gray-900">
+    <section id="features" className="max-w-7xl mx-auto px-6 pt-12">
+      <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-gray-900">
         Powerful AI Features
       </h2>
 
@@ -23,11 +23,15 @@ const Features = () => {
           <Link
             to={item.link}
             key={i}
-            className="p-8 bg-white shadow-lg rounded-2xl hover:shadow-2xl transition border border-gray-100"
+            className="p-8 bg-white shadow-xl rounded-3xl hover:shadow-2xl hover:scale-105 transition-transform duration-300 border border-gray-100 group"
           >
-            <div className="text-blue-600 mb-4">{item.icon}</div>
-            <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-            <p className="text-gray-500 mt-2 text-sm">
+            <div className="text-blue-600 mb-4 group-hover:text-blue-700 transition">
+              {item.icon}
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-900 transition">
+              {item.title}
+            </h3>
+            <p className="text-gray-500 mt-2 text-sm group-hover:text-gray-600 transition">
               Click to start using this AI tool instantly.
             </p>
           </Link>

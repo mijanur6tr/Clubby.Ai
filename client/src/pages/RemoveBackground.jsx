@@ -165,7 +165,7 @@ const RemoveBackground = () => {
 
 
                 <div className="lg:col-span-3">
-                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[70vh] border border-gray-100">
+                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[50vh] lg:min-h-[70vh] border border-gray-100">
                         <h2 className="flex items-center text-xl font-bold text-gray-800 border-b pb-4 mb-6">
                             <Sparkles className="w-5 h-5 mr-2 text-red-500" />
                             Processed Image

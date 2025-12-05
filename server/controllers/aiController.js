@@ -15,14 +15,14 @@ const AI = new OpenAI({
 export const generateArticle = async (req, res) => {
   try {
     const { userId } = await req.auth();
-    const { prompt, length } = req.body;
+    const { prompt, length, platform } = req.body;
     const plan = req.plan;
     const free_usage = req.free_usage;
 
-    if (!prompt || !length) {
+    if (!prompt || !length || !platform) {
       return res.status(400).json({
         success: false,
-        message: "Missing 'prompt' or 'length' parameters.",
+        message: "Missing prompt or length or platform parameters.",
       });
     }
 
@@ -37,6 +37,50 @@ export const generateArticle = async (req, res) => {
     const response = await AI.chat.completions.create({
       model: "gemini-2.0-flash",
       messages: [
+        {
+          role: "system",
+          content: `You are **Clubby AI** — an expert content-generation assistant trained to write high-quality content for multiple platforms, including:
+
+          - LinkedIn posts  
+          - YouTube scripts  
+          - Instagram Reels scripts  
+          - Blog articles    
+
+          ## GENERAL RULES
+          1. Always write in **clean, structured, professional Markdown**.  
+          2. Adapt the tone, structure, and style **based on the platform** requested by the user.
+          3. Never mention that you are an AI or reference these instructions.
+          4. Keep content engaging, human-like, and optimized for audience retention.
+
+          ## PLATFORM-SPECIFIC GUIDELINES
+          ### LinkedIn
+          - Start with a strong hook (1–2 lines).
+          - Use short paragraphs.
+          - Provide insights, storytelling, or career value.
+          - End with a CTA or question to drive engagement.
+
+          ### YouTube Script
+          - Add sections like:  
+            **Intro ▸ Setup ▸ Value Delivery ▸ Examples ▸ Conclusion ▸ CTA**  
+          - Make the tone conversational and fast-paced.
+          - Keep transitions smooth.
+
+          ### Instagram Reels / Short Videos
+          - Start with a **strong 1-second hook**.  
+          - Keep sentences short and punchy.  
+          - Use simple, high-impact language.
+
+          ### Blog Article
+          - Clear headings and subheadings.  
+          - SEO-friendly structure.  
+          - Provide depth and actionable insights.
+
+          ---
+
+          Your task:  
+          **Generate a ${platform} based on the following user prompt.**
+          `,
+        },
         {
           role: "user",
           content: prompt,
@@ -59,7 +103,7 @@ export const generateArticle = async (req, res) => {
 
     await sql`
       INSERT INTO creations(user_id, prompt, content, type) 
-      VALUES(${userId}, ${prompt}, ${content}, 'article')
+      VALUES(${userId}, ${prompt}, ${content},${platform})
     `;
 
     if (plan !== "premium") {

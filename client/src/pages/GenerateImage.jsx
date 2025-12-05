@@ -109,13 +109,13 @@ const GenerateImage = () => {
                 <div className="lg:col-span-2">
                     <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl h-fit border border-gray-100">
 
-                        <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-8">
+                        <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-2 lg:mb-8">
                             <Sparkles className="w-6 h-6 mr-2 text-green-500" />
                             AI Image Generator
                         </h1>
 
 
-                        <div className="mb-6">
+                        <div className="mb-2 lg:mb-6">
                             <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
                                 Describe Your Image
                             </label>
@@ -130,7 +130,7 @@ const GenerateImage = () => {
                         </div>
 
 
-                        <div className="mb-6">
+                        <div className="mb-2 lg:mb-6">
                             <label className="block text-sm font-medium text-gray-700 mb-3">
                                 Style
                             </label>
@@ -151,7 +151,7 @@ const GenerateImage = () => {
                         </div>
 
 
-                        <div className="mb-8 flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
+                        <div className="mb-2 lg:mb-8 flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
                             <label htmlFor="publish-toggle" className="text-sm font-medium text-gray-700">
                                 Publish to Gallery
                                 <p className="text-xs text-gray-500 mt-0.5">Allow others to see your generated image.</p>
@@ -201,7 +201,7 @@ const GenerateImage = () => {
                 </div>
 
                 <div className="lg:col-span-3">
-                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[70vh] border border-gray-100">
+                    <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[50vh] lg:min-h-[70vh] border border-gray-100">
                         <h2 className="flex items-center text-xl font-bold text-gray-800 border-b pb-4 mb-6">
                             <Image className="w-5 h-5 mr-2 text-green-500" />
                             Generated image
