@@ -5,8 +5,8 @@ import axios from "axios";
 import { v2 as cloudinary } from "cloudinary";
 // import { PDFParse } from "pdf-parse";
 
-import fs from "fs";
-import PDFParser from "pdf2json";
+// import fs from "fs";
+// import PDFParser from "pdf2json";
 
 const AI = new OpenAI({
   apiKey: process.env.GEMINI_API_KEY,
@@ -37,7 +37,7 @@ export const generateArticle = async (req, res) => {
     }
 
     const response = await AI.chat.completions.create({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash",
       messages: [
         {
           role: "system",
@@ -151,7 +151,7 @@ export const generateIdea = async (req, res) => {
     }
 
     const response = await AI.chat.completions.create({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash",
       messages: [
         {
           role: "system",
@@ -162,12 +162,12 @@ export const generateIdea = async (req, res) => {
         { role: "user", content: prompt },
       ],
       temperature: 0.7,
-      max_completion_tokens: 500,
+      max_completion_tokens: 1000,
     });
 
     const content = response.choices[0].message.content;
     if (!content) {
-      console.error("AI failed to return article content.");
+      console.error("AI failed to return content ideas.");
       return res.json({ success: false, message: "Content is not generated" });
     }
 
