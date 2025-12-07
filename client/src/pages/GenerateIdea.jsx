@@ -140,7 +140,7 @@ const GenerateIdea = () => {
                             onClick={handleGenerate}
                             disabled={loading}
                             className={`w-full flex items-center justify-center px-4 py-3 text-white font-semibold rounded-xl transition duration-300 transform active:scale-98 
-                                bg-linear-to-r from-fuchsia-600 to-purple-700 hover:from-fuchsia-700 hover:to-purple-800 shadow-lg shadow-purple-500/50
+                                bg-linear-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 shadow-lg shadow-cyan-500/50
                             `}
                         >
                             {loading ? <Loader className="w-5 h-5 mr-2"/>  : <Hash className="w-5 h-5 mr-2" />}

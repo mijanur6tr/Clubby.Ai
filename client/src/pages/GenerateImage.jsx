@@ -67,7 +67,7 @@ if (!canUseGenerateImage) {
         if (isLoading) {
             return (
                 <div className="flex flex-col items-center justify-center h-full min-h-[300px] text-gray-500">
-                    <Loader2 className="w-8 h-8 animate-spin text-green-500 mb-4" />
+                    <Loader2 className="w-8 h-8 animate-spin text-purple-500 mb-4" />
                     <p className="text-lg font-medium">Generating image...</p>
                     <p className="text-sm">This may take a few moments.</p>
                 </div>
@@ -117,7 +117,7 @@ if (!canUseGenerateImage) {
                     <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl h-fit border border-gray-100">
 
                         <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-2 lg:mb-8">
-                            <Sparkles className="w-6 h-6 mr-2 text-green-500" />
+                            <Sparkles className="w-6 h-6 mr-2 text-purple-500" />
                             AI Image Generator
                         </h1>
 
@@ -189,7 +189,7 @@ if (!canUseGenerateImage) {
                             disabled={isLoading}
                             className={`w-full flex items-center justify-center px-4 py-3 text-white font-semibold rounded-xl transition duration-300 transform active:scale-98 ${isLoading
                                     ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-linear-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 shadow-lg shadow-green-500/50'
+                                    : 'bg-linear-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 shadow-lg shadow-cyan-500/50'
                                 }`}
                         >
                             {isLoading ? (
@@ -210,7 +210,7 @@ if (!canUseGenerateImage) {
                 <div className="lg:col-span-3">
                     <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[50vh] lg:min-h-[70vh] border border-gray-100">
                         <h2 className="flex items-center text-xl font-bold text-gray-800 border-b pb-4 mb-6">
-                            <Image className="w-5 h-5 mr-2 text-green-500" />
+                            <Image className="w-5 h-5 mr-2 text-purple-500" />
                             Generated image
                         </h2>
                         <ImageDisplay />

@@ -198,8 +198,7 @@ const RemoveObject = () => {
                             onClick={handleRemoveObject}
                             disabled={isLoading}
                             className={`w-full flex items-center justify-center px-4 py-3 text-white font-semibold rounded-xl transition duration-300 transform active:scale-98 
-                                bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg shadow-purple-500/50
-                            `}
+                                bg-linear-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 shadow-lg shadow-cyan-500/50`}
                         >
                             {isLoading ? (
                                 <>

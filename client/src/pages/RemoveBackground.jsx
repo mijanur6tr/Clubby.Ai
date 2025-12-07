@@ -109,7 +109,7 @@ const RemoveBackground = () => {
 
 
                         <h1 className="flex items-center text-2xl font-bold text-gray-800 mb-8">
-                            <Sparkles className="w-6 h-6 mr-2 text-red-500" />
+                            <Sparkles className="w-6 h-6 mr-2 text-purple-500" />
                             Background Removal
                         </h1>
 
@@ -154,7 +154,7 @@ const RemoveBackground = () => {
                             disabled={isLoading}
                             className={`w-full flex items-center justify-center px-4 py-3 text-white font-semibold rounded-xl transition duration-300 transform active:scale-98 ${isLoading
                                     ? 'bg-gray-400 cursor-not-allowed'
-                                    : 'bg-linear-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 shadow-lg shadow-red-500/50'
+                                    : 'bg-linear-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 shadow-lg shadow-cyan-500/50'
                                 }`}
                         >
                             {isLoading ? (
@@ -176,7 +176,7 @@ const RemoveBackground = () => {
                 <div className="lg:col-span-3">
                     <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl min-h-[50vh] lg:min-h-[70vh] border border-gray-100">
                         <h2 className="flex items-center text-xl font-bold text-gray-800 border-b pb-4 mb-6">
-                            <Sparkles className="w-5 h-5 mr-2 text-red-500" />
+                            <Sparkles className="w-5 h-5 mr-2 text-purple-500" />
                             Processed Image
                         </h2>
                         <ProcessedImageDisplay />
