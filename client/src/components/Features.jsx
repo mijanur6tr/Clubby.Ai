@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Image, Type, Lightbulb, EyeOff, Eraser, FileCheck2 } from "lucide-react";
 
 const Features = () => {
-  const featuresList = [
-    { icon: <Image size={32} />, title: "Generate Image", link: "/ai/generate-image" },
-    { icon: <Type size={32} />, title: "Write Articles", link: "/ai/article" },
+  const featuresList = [ 
     { icon: <Lightbulb size={32} />, title: "Generate Ideas", link: "/ai/generate-idea" },
+      { icon: <Type size={32} />, title: "Generate Content", link: "/ai/article" },
+    { icon: <Image size={32} />, title: "Generate Image", link: "/ai/generate-image" },
     { icon: <EyeOff size={32} />, title: "Remove Background", link: "/ai/remove-bg" },
     { icon: <Eraser size={32} />, title: "Remove Object", link: "/ai/remove-object" },
     { icon: <FileCheck2 size={32} />, title: "Review Resume", link: "/ai/review-resume" },

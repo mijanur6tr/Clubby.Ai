@@ -157,7 +157,7 @@ export const generateIdea = async (req, res) => {
           role: "system",
           content: `You are Clubby AI, a friendly and expert content generation assistant. 
           Always respond in clean and professional markdown.
-          Generate 5 unique and actionable content ideas based on ${category} category. prioritize the user prompt more and if it does not match with category ignore category. Format should include a headline and content type a brief about what is in the content`,
+          Generate 5 unique and actionable content ideas based on ${category} category. prioritize the user prompt more and if it does not match with category ignore category. Format should include a headline and content type a very little breif about the execution`,
         },
         { role: "user", content: prompt },
       ],
