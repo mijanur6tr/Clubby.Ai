@@ -3,6 +3,7 @@ import { Sparkles, Scissors, Loader2 } from 'lucide-react';
 import axios from "axios";
 import { useAuth } from '@clerk/clerk-react';
 import toast from "react-hot-toast"
+import UpgradeModal from '../components/UpgradeModal';
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -13,6 +14,7 @@ const RemoveObject = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [generatedImageUrl, setGeneratedImageUrl] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null);
+    const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
 
     const handleFileChange = (e) => {
@@ -26,8 +28,15 @@ const RemoveObject = () => {
     };
 
     const { getToken } = useAuth();
+    const { has } = useAuth();
 
     const handleRemoveObject = async () => {
+
+        const canUseGenerateImage = has({ feature: "image_generation" }); 
+        if (!canUseGenerateImage) {
+            setShowUpgradeModal(true);
+            return;
+        }
        
         setIsLoading(true);
 
@@ -216,6 +225,7 @@ const RemoveObject = () => {
                         <ProcessedImageDisplay />
                     </div>
                 </div>
+                <UpgradeModal open={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
             </div>
         </div>
     );

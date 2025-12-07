@@ -1,4 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+import {Toaster} from "react-hot-toast"
+// import { useAuth } from "@clerk/clerk-react";
+// import { useEffect } from "react";
 
 // Import all pages
 import Home from "./pages/Home.jsx";
@@ -11,16 +14,16 @@ import GenerateImage from "./pages/GenerateImage.jsx";
 import RemoveBackground from "./pages/RemoveBackground.jsx";
 import RemoveObject from "./pages/RemoveObject.jsx";
 import ReviewResume from "./pages/ReviewResume.jsx";
-import {Toaster} from "react-hot-toast"
-import { useAuth } from "@clerk/clerk-react";
-import { useEffect } from "react";
+import Subscription from "./pages/Subscription.jsx";
 
 function App() {
 
-  const {getToken} = useAuth()
-  useEffect(()=>{
-    getToken().then((token)=>console.log(token))
-  },[])
+  // const {getToken} = useAuth()
+
+
+  // useEffect(()=>{
+  //   getToken().then((token)=>console.log(token))
+  // },[])
 
   return (
     <>
@@ -42,9 +45,10 @@ function App() {
           <Route path="remove-bg" element={<RemoveBackground />} />
           <Route path="remove-object" element={<RemoveObject />} />
           <Route path="review-resume" element={<ReviewResume />} />
+         <Route path="subscription" element={<Subscription />} />
 
         </Route>
-
+ 
       </Routes>
     </>
   );

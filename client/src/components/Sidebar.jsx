@@ -4,11 +4,16 @@ import {
   FileText, Lightbulb, Image, Scissors, Eraser,
   FileCheck2, LayoutDashboard, Users, X
 } from "lucide-react";
+// import { useEffect } from "react";
 
 export const Sidebar = ({ closeSidebar }) => {
   const { user } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
+
+  // useEffect(()=>{
+  //   console.log(user)
+  // },[])
   
 
   const menu = [

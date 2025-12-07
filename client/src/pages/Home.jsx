@@ -21,7 +21,7 @@ const Home = () => {
       </div>
 
       {/* Pricing/Plan Section */}
-      <Plan />
+      <Plan id="pricing-section" />
       <div className=" bg-linear-to-b from-blue-50 via-white to-blue-50 flex items-center justify-center py-8 ">
         <Testimonial/>
 

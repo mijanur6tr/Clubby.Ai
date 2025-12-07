@@ -12,8 +12,12 @@ if (!PUBLISHABLE_KEY) {
 }
 
 createRoot(document.getElementById('root')).render(
-    <ClerkProvider afterSignInUrl="/ai/article" 
-      afterSignUpUrl="/ai/article" publishableKey={PUBLISHABLE_KEY}>
+    <ClerkProvider
+    publishableKey={PUBLISHABLE_KEY}
+    signInFallbackRedirectUrl="/ai/article"
+      signUpFallbackRedirectUrl="/ai/article"
+      signInForceRedirectUrl="/ai/article"
+      signUpForceRedirectUrl="/ai/article" >
         <BrowserRouter>
             <App />
         </BrowserRouter>

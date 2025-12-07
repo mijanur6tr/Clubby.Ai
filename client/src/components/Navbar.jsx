@@ -1,30 +1,31 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useClerk, useUser, useSession, UserButton } from "@clerk/clerk-react";
-import navLogo from '../../public/navLogo.png';
+import { useClerk, useUser,  UserButton } from "@clerk/clerk-react";
+import navLogo from '/navLogo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { openSignIn } = useClerk();
   const { user } = useUser();
-  const { session } = useSession();  
+  // const { session } = useSession();  
 
-  useEffect(() => {
-    if (!session) return;
+  // useEffect(() => {
+  //   if (!session) return;
 
-    const alreadyRedirected = sessionStorage.getItem("redirectedAfterSignIn");
+  //   const alreadyRedirected = sessionStorage.getItem("redirectedAfterSignIn");
 
-    if (!alreadyRedirected && session.status === "active") {
-      sessionStorage.setItem("redirectedAfterSignIn", "true");
-      navigate("/ai/article");
-    }
-  }, [session, navigate]);
+  //   if (!alreadyRedirected && session.status === "active") {
+  //     sessionStorage.setItem("redirectedAfterSignIn", "true");
+  //     navigate("/ai/article");
+  //   }
+  // }, [session, navigate]);
 
-  useEffect(() => {
-    if (!user) {
-      sessionStorage.removeItem("redirectedAfterSignIn");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     sessionStorage.removeItem("redirectedAfterSignIn");
+  //   }
+  // }, [user]);
+  
 
   return (
     <nav className="w-full top-0 left-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">

@@ -3,7 +3,7 @@ import { Sparkles, Image, Edit3, Loader2 } from 'lucide-react';
 import toast from "react-hot-toast"
 import axios from "axios";
 import { useAuth } from '@clerk/clerk-react';
-
+import UpgradeModal from '../components/UpgradeModal';
 
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
@@ -16,11 +16,18 @@ const GenerateImage = () => {
     const [publish, setPublish] = useState(false);
     const [generatedImageUrl, setGeneratedImageUrl] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
     const { getToken } = useAuth();
+    const { has } = useAuth();
 
     const handleGenerate = async () => {
 
+const canUseGenerateImage = has({ feature: "image_generation" }); 
+if (!canUseGenerateImage) {
+    setShowUpgradeModal(true);
+    return;
+}
 
         setIsLoading(true)
 
@@ -41,7 +48,7 @@ const GenerateImage = () => {
             }
         } catch (error) {
             console.log("Error in generating image", error)
-            toast.error(error.message)
+            toast.error(error.response?.data?.message || "An unexpected error occurred.")
         } finally {
             setIsLoading(false)
         }
@@ -210,6 +217,9 @@ const GenerateImage = () => {
                     </div>
                 </div>
             </div>
+
+            <UpgradeModal open={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
+
 
             <style jsx="true">{`
                 .toggle-checkbox {

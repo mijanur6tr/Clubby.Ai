@@ -12,3 +12,7 @@
 .reset-tw, .reset-tw *{
   all:revert !important;
 }
+
+html {
+  scroll-behavior: smooth;
+}
