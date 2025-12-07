@@ -80,7 +80,7 @@ export const generateArticle = async (req, res) => {
           ---
 
           Your task:  
-          **Generate a ${platform} based on the following user prompt.**
+          **Generate a ${platform} based on the following user prompt within the ${length} max completion token.**
           `,
         },
         {
@@ -162,7 +162,7 @@ export const generateIdea = async (req, res) => {
         { role: "user", content: prompt },
       ],
       temperature: 0.7,
-      max_completion_tokens: 1000,
+      max_completion_tokens: 1600,
     });
 
     const content = response.choices[0].message.content;
